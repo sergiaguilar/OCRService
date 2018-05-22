@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/businesslayerocr/businesslayerocr.iml" filepath="$PROJECT_DIR$/businesslayerocr/businesslayerocr.iml" />
+      <module fileurl="file://$PROJECT_DIR$/databaseintegrationocr/databaseintegrationocr.iml" filepath="$PROJECT_DIR$/databaseintegrationocr/databaseintegrationocr.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ocrservice.iml" filepath="$PROJECT_DIR$/ocrservice.iml" />
+      <module fileurl="file://$PROJECT_DIR$/restocrservice/restocrservice.iml" filepath="$PROJECT_DIR$/restocrservice/restocrservice.iml" />
+    </modules>
+  </component>
+</project>

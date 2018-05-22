@@ -1,0 +1,11 @@
+com\everis\billing\model\Facturation.class
+com\everis\billing\model\License.class
+com\everis\autorizationauthentication\model\Users.class
+com\everis\autorizationauthentication\repository\UsersRepository.class
+com\everis\billing\model\FacturationComposed.class
+com\everis\autorizationauthentication\repository\ProductsRepository.class
+com\everis\ocr\model\Ticket.class
+com\everis\billing\repository\FacturationRepository.class
+com\everis\ocr\repository\TicketRepository.class
+com\everis\autorizationauthentication\model\Products.class
+com\everis\billing\repository\LicenseRepository.class

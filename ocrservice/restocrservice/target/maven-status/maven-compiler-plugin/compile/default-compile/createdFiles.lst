@@ -1,0 +1,10 @@
+com\everis\userservice\UserController.class
+com\everis\ticket\TicketController.class
+com\everis\ocrservice\FineReaderController.class
+com\everis\userservice\LogInController.class
+com\everis\rabbitmq\Runner.class
+com\everis\RestApp.class
+com\everis\productservice\ProductController.class
+com\everis\tokenuser\TokenUser.class
+com\everis\security\CorsConfig.class
+com\everis\security\JwtFilter.class
