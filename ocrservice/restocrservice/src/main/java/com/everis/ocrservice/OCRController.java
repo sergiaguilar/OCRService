@@ -4,7 +4,7 @@ import com.everis.autorizationauthentication.model.Users;
 import com.everis.billing.model.License;
 import com.everis.businesslogic.interfaces.IProductControl;
 import com.everis.facturationcontrol.interfaces.IFacturationControl;
-import com.everis.finereadercontrol.interfaces.IFineReaderControl;
+import com.everis.finereadercontrol.interfaces.ITicketControl;
 import com.everis.rabbitmq.Runner;
 import com.everis.tokenuser.TokenUser;
 import org.slf4j.Logger;
@@ -21,20 +21,18 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Random;
 
 @RestController
-@RequestMapping("/secure/ocr/Finereader")
-public class FineReaderController {
+@RequestMapping("/secure/ocr/")
+public class OCRController {
 
     private static String UPLOADED_FOLDER = "C:\\Temp\\Entrada\\";
 
-    private final Logger logger = LoggerFactory.getLogger(FineReaderController.class);
+    private final Logger logger = LoggerFactory.getLogger(OCRController.class);
 
-    String idProduct = "ABBYYFR";
 
     @Autowired
     private IProductControl iProductControl;
@@ -42,7 +40,7 @@ public class FineReaderController {
     private TokenUser tokenUser = new TokenUser();
 
     @Autowired
-    private IFineReaderControl iFineReaderControl;
+    private ITicketControl iTicketControl;
 
     @Autowired
     private IFacturationControl iFacturationControl;
@@ -50,23 +48,23 @@ public class FineReaderController {
     @Autowired
     private Runner runner;
 
-    public FineReaderController() {
+    public OCRController() {
 
     }
 
-    @PostMapping(value = "/")
-    public ResponseEntity<?> uploadFile(@RequestParam("file")MultipartFile uploadFile, @RequestParam("precision") Integer precision, HttpServletRequest request)  {
-
+    @PostMapping(value = "/fineReader")
+    public ResponseEntity<?> uploadFileAbby(@RequestParam("file")MultipartFile uploadFile, @RequestParam("precision") Integer precision, HttpServletRequest request)  {
+        String idProduct = "ABBYYFR";
         String token = request.getHeader("Authorization");
         token = token.substring(7);
         Users users = tokenUser.getUser(token);
 
         logger.debug("Single file upload!");
         if(uploadFile.isEmpty()) {
-            return new ResponseEntity("Please select a file!!!!", HttpStatus.OK);
+            return new ResponseEntity("Please select a file!!!!", HttpStatus.BAD_REQUEST);
         }
 
-        if (precision < 1 || precision > 3) return new ResponseEntity("Precision must be a number between 1 and 3!", HttpStatus.OK);
+        if (precision < 1 || precision > 3) return new ResponseEntity("Precision must be a number between 1 and 3!", HttpStatus.BAD_REQUEST);
 
         if(iProductControl.userCanUseProduct(idProduct, users)) {
             License license = iFacturationControl.getLicense(idProduct);
@@ -74,16 +72,14 @@ public class FineReaderController {
             if (license != null) {
                 try {
                     String ticket = generateTicket();
-                    iFineReaderControl.newTicket(ticket);
-                    try {
-                        saveUploadedeFiles(uploadFile, ticket);
-                    } catch (IOException e) {
-                        return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-                    }
+                    iTicketControl.newTicket(ticket);
+
+                    saveUploadedeFiles(uploadFile, ticket);
+
                     String extension = uploadFile.getOriginalFilename();
                     Integer intaux = extension.indexOf('.');
                     extension = extension.substring(intaux, extension.length());
-                    runner.run(precision,token, ticket, extension);
+                    runner.run(precision,token, ticket, extension, "ABBYFR");
                     return new ResponseEntity("Enviado correctamente! Este es su número de ticket: " + ticket,new HttpHeaders(),HttpStatus.OK);
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -93,6 +89,47 @@ public class FineReaderController {
             }
         }
         return new ResponseEntity("User can't use this product!!", HttpStatus.OK);
+
+
+    }
+
+    @PostMapping(value = "/tesseract")
+    public ResponseEntity<?> uploadFileTesseract(@RequestParam("file")MultipartFile uploadFile, @RequestParam("precision") Integer precision, HttpServletRequest request)  {
+        String idProduct = "tesseract";
+        String token = request.getHeader("Authorization");
+        token = token.substring(7);
+        Users users = tokenUser.getUser(token);
+
+        logger.debug("Single file upload!");
+        if(uploadFile.isEmpty()) {
+            return new ResponseEntity("Please select a file!!!!", HttpStatus.BAD_REQUEST);
+        }
+
+        if (precision < 1 || precision > 3) return new ResponseEntity("Precision must be a number between 1 and 3!", HttpStatus.BAD_REQUEST);
+
+        if(iProductControl.userCanUseProduct(idProduct, users)) {
+            License license = iFacturationControl.getLicense(idProduct);
+
+            if (license != null) {
+                try {
+                    String ticket = generateTicket();
+                    iTicketControl.newTicket(ticket);
+
+                    saveUploadedeFiles(uploadFile, ticket);
+
+                    String extension = uploadFile.getOriginalFilename();
+                    Integer intaux = extension.indexOf('.');
+                    extension = extension.substring(intaux, extension.length());
+                    runner.run(precision,token, ticket, extension, "tesseract");
+                    return new ResponseEntity("Enviado correctamente! Este es su número de ticket: " + ticket,new HttpHeaders(),HttpStatus.OK);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            } else {
+                return new ResponseEntity("This product doesn't have any license associated!!!", HttpStatus.BAD_REQUEST);
+            }
+        }
+        return new ResponseEntity("User can't use this product!!", HttpStatus.BAD_REQUEST);
 
 
     }

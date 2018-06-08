@@ -14,12 +14,13 @@ public class Runner {
         this.rabbitTemplate = rabbitTemplate;
     }
 
-    public void run(Integer precision, String token, String ticket, String extension) throws Exception {
+    public void run(Integer precision, String token, String ticket, String extension, String ocr) throws Exception {
         System.out.println("Sending message...");
         StringBuilder message = new StringBuilder(precision.toString());
         message.append("|").append(token);
         message.append("|").append(ticket);
         message.append("|").append(extension);
+        message.append("|").append(ocr);
         rabbitTemplate.convertAndSend(RestApp.TASK_QUEUE_NAME, message.toString());
     }
 }

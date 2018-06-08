@@ -1,6 +1,6 @@
 package com.everis.ticket;
 
-import com.everis.finereadercontrol.interfaces.IFineReaderControl;
+import com.everis.finereadercontrol.interfaces.ITicketControl;
 import org.apache.tomcat.util.http.fileupload.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -12,52 +12,56 @@ import java.io.IOException;
 import java.io.InputStream;
 
 @RestController
+//@RequestMapping("/secure/ocr/")
 public class TicketController {
 
     @Autowired
-    private IFineReaderControl iFineReaderControl;
+    private ITicketControl iTicketControl;
 
-    private static String DOWNLOAD_FOLDER = "C:\\Temp\\Salida";
+    private static String DOWNLOAD_FOLDER = "C:\\Temp\\Salida\\";
 
-    @PostMapping(value = "/ticketInfo")
-    public String getTicketInfo(@RequestParam("ticket") String ticket) {
-        String state = iFineReaderControl.getTicketInfo(ticket);
+    @RequestMapping(value = "/ticketInfo/{ticketId}", method = RequestMethod.GET)
+    public String getTicketInfo(@PathVariable("ticketId") String ticket) {
+        String state = iTicketControl.getTicketInfo(ticket);
         if (state.equals("Process finished")){
-            String error = iFineReaderControl.getTicketError(ticket);
+            String error = iTicketControl.getTicketError(ticket);
             return state + ". " + error + ".";
         }
         else return state + ".";
     }
 
-    @RequestMapping(value = "/getDownload", method = RequestMethod.POST)
-    public String getDownload(@RequestParam("ticket") String ticket, HttpServletResponse response) throws IOException {
-        String result = iFineReaderControl.getTicketInfo(ticket);
-        String error = iFineReaderControl.getTicketError(ticket);
-        System.out.println(error);
-        if(result.equals("Process finished")) {
-            if(!error.startsWith("Error")) {
-                File initial = new File(DOWNLOAD_FOLDER + ticket + ".txt");
-                InputStream myStream = new FileInputStream(initial);
+    @RequestMapping(value = "/getDownload/{ticketId}", method = RequestMethod.GET)
+    public String getDownload(@PathVariable("ticketId") String ticket, HttpServletResponse response) throws IOException {
+        String result = iTicketControl.getTicketInfo(ticket);
+        if (result.equals("Ticket doesn't exists!")) return result;
+        else if(result.equals("Downloaded")) return "The file has been downloaded previously.";
+        else if (result.equals("Process finished")) {
+            String error = iTicketControl.getTicketError(ticket);
+            System.out.println(error);
 
-                response.addHeader("Content-disposition", "attachment;filename=descarga.txt");
-                response.setContentType("txt/plain");
+                if (!error.startsWith("Error")) {
+                    File initial = new File(DOWNLOAD_FOLDER + ticket + ".txt");
+                    InputStream myStream = new FileInputStream(initial);
 
-                IOUtils.copy(myStream,response.getOutputStream());
-                response.flushBuffer();
-                removeFile(ticket);
-                return "Download done.";
-            }
-            else return "Can't download: " + error;
+                    response.addHeader("Content-disposition", "attachment;filename="+ ticket +".txt");
+                    response.setContentType("txt/plain");
 
+                    IOUtils.copy(myStream, response.getOutputStream());
+                    response.flushBuffer();
+
+                    myStream.close();
+                    removeFile(ticket);
+                    iTicketControl.setDownloaded(ticket);
+                    return "Download done.";
+                }
+                else return "Can't download: " + error;
         }
-        else if (result.equals("Ticket doesn't exists!")) return result;
         else return "The process has not finished!.";
 
     }
 
     public void removeFile(String ticket) {
         File fichero = new File(DOWNLOAD_FOLDER + ticket + ".txt");
-
         fichero.delete();
     }
 }

@@ -46,7 +46,7 @@ public class LogInController {
         Date date = new Date();
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(date);
-        calendar.add(Calendar.MINUTE, 5);
+        calendar.add(Calendar.MINUTE, 30);
         Date expireDate = calendar.getTime();
 
         jwtToken = Jwts.builder().setSubject(idCompany).setId(password).setIssuedAt(date).setExpiration(expireDate)

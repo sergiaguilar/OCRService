@@ -27,6 +27,9 @@ public class ProductController {
 
     @PostMapping(value = "/newProduct")
     public String newProduct(@RequestBody Products products) {
+        if(products.getIdProduct()== null || products.getName() == null || products.getClassName() == null) {
+            return "Debes poner idProduct, name y className";
+        }
         return iProductControl.newProduct(products);
     }
 
