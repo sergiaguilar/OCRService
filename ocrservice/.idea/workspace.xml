@@ -32,47 +32,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="TicketControl.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/businesslayerocr/src/main/java/com/everis/finereadercontrol/logic/TicketControl.java">
+      <file leaf-file-name="ProductController.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/restocrservice/src/main/java/com/everis/productservice/ProductController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="208">
-              <caret line="22" column="4" lean-forward="true" selection-start-line="22" selection-start-column="4" selection-end-line="22" selection-end-column="40" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="OCRController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/restocrservice/src/main/java/com/everis/ocrservice/OCRController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="28" column="0" lean-forward="false" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="31" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TicketController.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/restocrservice/src/main/java/com/everis/ticket/TicketController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="452">
-              <caret line="64" column="25" lean-forward="false" selection-start-line="64" selection-start-column="25" selection-end-line="64" selection-end-column="25" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Runner.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/restocrservice/src/main/java/com/everis/rabbitmq/Runner.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="16" column="16" lean-forward="false" selection-start-line="16" selection-start-column="16" selection-end-line="16" selection-end-column="16" />
+            <state relative-caret-position="-191">
+              <caret line="22" column="27" lean-forward="false" selection-start-line="22" selection-start-column="27" selection-end-line="22" selection-end-column="27" />
               <folding />
             </state>
           </provider>
@@ -135,7 +99,6 @@
         <option value="$PROJECT_DIR$/restocrservice/pom.xml" />
         <option value="$PROJECT_DIR$/databaseintegrationocr/src/main/resources/application.properties" />
         <option value="$PROJECT_DIR$/restocrservice/src/main/java/com/everis/userservice/LogInController.java" />
-        <option value="$PROJECT_DIR$/restocrservice/src/main/java/com/everis/productservice/ProductController.java" />
         <option value="$PROJECT_DIR$/restocrservice/src/main/java/com/everis/ocrservice/FineReaderController.java" />
         <option value="$PROJECT_DIR$/restocrservice/src/main/java/com/everis/rabbitmq/Runner.java" />
         <option value="$PROJECT_DIR$/businesslayerocr/src/main/java/com/everis/iTesseractControl/interfaces/ITesseractControl.java" />
@@ -147,6 +110,7 @@
         <option value="$PROJECT_DIR$/businesslayerocr/src/main/java/com/everis/finereadercontrol/logic/TicketControl.java" />
         <option value="$PROJECT_DIR$/businesslayerocr/src/main/java/com/everis/finereadercontrol/interfaces/ITicketControl.java" />
         <option value="$PROJECT_DIR$/restocrservice/src/main/java/com/everis/ticket/TicketController.java" />
+        <option value="$PROJECT_DIR$/restocrservice/src/main/java/com/everis/productservice/ProductController.java" />
       </list>
     </option>
   </component>
@@ -210,73 +174,6 @@
             <path>
               <item name="ocrservice" type="b2602c69:ProjectViewProjectNode" />
               <item name="ocrservice" type="462c0819:PsiDirectoryNode" />
-              <item name="businesslayerocr" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ocrservice" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ocrservice" type="462c0819:PsiDirectoryNode" />
-              <item name="businesslayerocr" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ocrservice" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ocrservice" type="462c0819:PsiDirectoryNode" />
-              <item name="businesslayerocr" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ocrservice" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ocrservice" type="462c0819:PsiDirectoryNode" />
-              <item name="businesslayerocr" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ocrservice" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ocrservice" type="462c0819:PsiDirectoryNode" />
-              <item name="businesslayerocr" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="everis" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ocrservice" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ocrservice" type="462c0819:PsiDirectoryNode" />
-              <item name="businesslayerocr" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="everis" type="462c0819:PsiDirectoryNode" />
-              <item name="finereadercontrol" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ocrservice" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ocrservice" type="462c0819:PsiDirectoryNode" />
-              <item name="businesslayerocr" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="everis" type="462c0819:PsiDirectoryNode" />
-              <item name="finereadercontrol" type="462c0819:PsiDirectoryNode" />
-              <item name="interfaces" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ocrservice" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ocrservice" type="462c0819:PsiDirectoryNode" />
-              <item name="businesslayerocr" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="everis" type="462c0819:PsiDirectoryNode" />
-              <item name="finereadercontrol" type="462c0819:PsiDirectoryNode" />
-              <item name="logic" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ocrservice" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ocrservice" type="462c0819:PsiDirectoryNode" />
               <item name="restocrservice" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -318,6 +215,16 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="everis" type="462c0819:PsiDirectoryNode" />
               <item name="ocrservice" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ocrservice" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ocrservice" type="462c0819:PsiDirectoryNode" />
+              <item name="restocrservice" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="everis" type="462c0819:PsiDirectoryNode" />
+              <item name="productservice" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="ocrservice" type="b2602c69:ProjectViewProjectNode" />
@@ -337,7 +244,37 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="everis" type="462c0819:PsiDirectoryNode" />
+              <item name="security" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ocrservice" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ocrservice" type="462c0819:PsiDirectoryNode" />
+              <item name="restocrservice" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="everis" type="462c0819:PsiDirectoryNode" />
               <item name="ticket" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ocrservice" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ocrservice" type="462c0819:PsiDirectoryNode" />
+              <item name="restocrservice" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="everis" type="462c0819:PsiDirectoryNode" />
+              <item name="tokenuser" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ocrservice" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ocrservice" type="462c0819:PsiDirectoryNode" />
+              <item name="restocrservice" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="everis" type="462c0819:PsiDirectoryNode" />
+              <item name="userservice" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -538,15 +475,16 @@
       <workItem from="1517498722794" duration="2503000" />
       <workItem from="1521724340484" duration="196000" />
       <workItem from="1522055550030" duration="63000" />
-      <workItem from="1527847192863" duration="15280000" />
+      <workItem from="1527847192863" duration="16373000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="309298000" />
+    <option name="totallyTimeSpent" value="310391000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -557,7 +495,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3343419" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3710191" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3707483" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -795,14 +733,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/restocrservice/src/main/java/com/everis/tokenuser/TokenUser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/restocrservice/src/main/java/com/everis/security/CorsConfig.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
@@ -851,30 +781,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/restocrservice/src/main/java/com/everis/userservice/UserController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="89">
-          <caret line="14" column="13" lean-forward="false" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/restocrservice/src/main/java/com/everis/userservice/LogInController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="89">
-          <caret line="48" column="40" lean-forward="false" selection-start-line="48" selection-start-column="40" selection-end-line="48" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/restocrservice/src/main/java/com/everis/productservice/ProductController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-47">
-          <caret line="29" column="98" lean-forward="false" selection-start-line="29" selection-start-column="98" selection-end-line="29" selection-end-column="98" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/businesslayerocr/src/main/java/com/everis/iTesseractControl/interfaces/ITesseractControl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
@@ -895,14 +801,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-187">
           <caret line="26" column="14" lean-forward="false" selection-start-line="26" selection-start-column="14" selection-end-line="26" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/restocrservice/src/main/java/com/everis/rabbitmq/Runner.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="16" column="16" lean-forward="false" selection-start-line="16" selection-start-column="16" selection-end-line="16" selection-end-column="16" />
           <folding />
         </state>
       </provider>
@@ -937,11 +835,51 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/restocrservice/src/main/java/com/everis/ticket/TicketController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="452">
+        <state relative-caret-position="1088">
           <caret line="64" column="25" lean-forward="false" selection-start-line="64" selection-start-column="25" selection-end-line="64" selection-end-column="25" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/restocrservice/src/main/java/com/everis/rabbitmq/Runner.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="16" column="16" lean-forward="false" selection-start-line="16" selection-start-column="16" selection-end-line="16" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/restocrservice/src/main/java/com/everis/userservice/LogInController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="612">
+          <caret line="48" column="40" lean-forward="false" selection-start-line="48" selection-start-column="40" selection-end-line="48" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/restocrservice/src/main/java/com/everis/userservice/UserController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="14" column="13" lean-forward="false" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/restocrservice/src/main/java/com/everis/tokenuser/TokenUser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/restocrservice/src/main/java/com/everis/productservice/ProductController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-191">
+          <caret line="22" column="27" lean-forward="false" selection-start-line="22" selection-start-column="27" selection-end-line="22" selection-end-column="27" />
+          <folding />
         </state>
       </provider>
     </entry>

@@ -20,7 +20,7 @@ public class ProductController {
 
     private TokenUser tokenUser = new TokenUser();
 
-    @GetMapping(value = "/ListProducts")
+    @GetMapping(value = "/listProducts")
     public List listProducts() {
         return iProductControl.listProducts();
     }
@@ -33,7 +33,7 @@ public class ProductController {
         return iProductControl.newProduct(products);
     }
 
-    @RequestMapping(value = "/{idProduct}")
+    @GetMapping(value = "/{idProduct}")
     public String userCanUseProduct(@PathVariable String idProduct, HttpServletRequest request) {
         String token = request.getHeader("Authorization");
         token = token.substring(7);
