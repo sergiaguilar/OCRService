@@ -1,8 +1,8 @@
-com\everis\finereadercontrol\logic\FineReaderControl.class
 com\everis\facturationcontrol\logic\FacturationControl.class
 com\everis\facturationcontrol\interfaces\IFacturationControl.class
 com\everis\businesslogic\userlogic\UserControl.class
+com\everis\finereadercontrol\interfaces\ITicketControl.class
 com\everis\businesslogic\userlogic\ProductControl.class
 com\everis\businesslogic\interfaces\IProductControl.class
-com\everis\finereadercontrol\interfaces\IFineReaderControl.class
 com\everis\businesslogic\interfaces\IUserControl.class
+com\everis\finereadercontrol\logic\TicketControl.class

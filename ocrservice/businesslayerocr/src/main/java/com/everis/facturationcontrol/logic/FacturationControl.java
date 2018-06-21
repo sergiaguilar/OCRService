@@ -58,11 +58,11 @@ public class FacturationControl implements IFacturationControl{
     }
 
     public Integer getActualVolume(String idLicense) {
-        return licenseRepository.getOne(idLicense).getActualVolume();
+        return licenseRepository.findById(idLicense).get().getActualVolume();
     }
 
     public Integer getVolume(String idLicense) {
-        return licenseRepository.getOne(idLicense).getVolume();
+        return licenseRepository.findById(idLicense).get().getVolume();
     }
 
 

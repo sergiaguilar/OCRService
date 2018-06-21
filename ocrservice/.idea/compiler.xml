@@ -12,9 +12,9 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="businesslayerocr" target="1.5" />
-      <module name="databaseintegrationocr" target="1.5" />
-      <module name="ocrservice" target="1.5" />
+      <module name="businesslayerocr" target="1.8" />
+      <module name="databaseintegrationocr" target="1.8" />
+      <module name="ocrservice" target="1.8" />
       <module name="restocrservice" target="1.7" />
     </bytecodeTargetLevel>
   </component>

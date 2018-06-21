@@ -4,6 +4,7 @@ import com.everis.businesslogic.interfaces.IUserControl;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureException;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.filter.GenericFilterBean;
 
 import javax.servlet.FilterChain;
@@ -15,7 +16,6 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 public class JwtFilter extends GenericFilterBean {
-
 
     private IUserControl iUserControl;
 
@@ -37,11 +37,11 @@ public class JwtFilter extends GenericFilterBean {
 
             chain.doFilter(req, res);
         } else {
-            if (authHeader == null || !authHeader.startsWith("Bearer ")) {
+            if (authHeader == null) {
                 throw new ServletException("Missing or invalid Authorization header");
             }
 
-            final String token = authHeader.substring(7);
+            final String token = authHeader;
             try {
                 final Claims claims = Jwts.parser().setSigningKey("everis").parseClaimsJws(token).getBody();
 
@@ -61,6 +61,7 @@ public class JwtFilter extends GenericFilterBean {
 
 
                 request.setAttribute("Claims", claims);
+
 
             } catch (final SignatureException e) {
                 throw new ServletException("Invalid token");

@@ -7,9 +7,13 @@ import com.everis.facturationcontrol.interfaces.IFacturationControl;
 import com.everis.finereadercontrol.interfaces.ITicketControl;
 import com.everis.rabbitmq.Runner;
 import com.everis.tokenuser.TokenUser;
+import com.microsoft.azure.servicebus.Message;
+import com.microsoft.azure.servicebus.QueueClient;
+import com.microsoft.azure.servicebus.primitives.ServiceBusException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -18,6 +22,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -26,6 +31,7 @@ import java.util.Date;
 import java.util.Random;
 
 @RestController
+@ComponentScan({"com.everis.*"})
 @RequestMapping("/secure/ocr/")
 public class OCRController {
 
@@ -33,6 +39,9 @@ public class OCRController {
 
     private final Logger logger = LoggerFactory.getLogger(OCRController.class);
 
+
+    @Autowired
+    private QueueClient queueClientForSending;
 
     @Autowired
     private IProductControl iProductControl;
@@ -44,9 +53,6 @@ public class OCRController {
 
     @Autowired
     private IFacturationControl iFacturationControl;
-
-    @Autowired
-    private Runner runner;
 
     public OCRController() {
 
@@ -79,7 +85,7 @@ public class OCRController {
                     String extension = uploadFile.getOriginalFilename();
                     Integer intaux = extension.indexOf('.');
                     extension = extension.substring(intaux, extension.length());
-                    runner.run(precision,token, ticket, extension, "ABBYFR");
+                    run(precision,token, ticket, extension, "ABBYFR");
                     return new ResponseEntity("Enviado correctamente! Este es su número de ticket: " + ticket,new HttpHeaders(),HttpStatus.OK);
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -97,7 +103,6 @@ public class OCRController {
     public ResponseEntity<?> uploadFileTesseract(@RequestParam("file")MultipartFile uploadFile, @RequestParam("precision") Integer precision, HttpServletRequest request)  {
         String idProduct = "tesseract";
         String token = request.getHeader("Authorization");
-        token = token.substring(7);
         Users users = tokenUser.getUser(token);
 
         logger.debug("Single file upload!");
@@ -120,7 +125,7 @@ public class OCRController {
                     String extension = uploadFile.getOriginalFilename();
                     Integer intaux = extension.indexOf('.');
                     extension = extension.substring(intaux, extension.length());
-                    runner.run(precision,token, ticket, extension, "tesseract");
+                    run(precision,token, ticket, extension, "tesseract");
                     return new ResponseEntity("Enviado correctamente! Este es su número de ticket: " + ticket,new HttpHeaders(),HttpStatus.OK);
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -158,6 +163,32 @@ public class OCRController {
 
         }
 
+    }
+
+
+
+    public void run(Integer precision, String token, String ticket, String extension, String ocr) throws Exception {
+        System.out.println("Sending message...");
+        StringBuilder message = new StringBuilder(precision.toString());
+        message.append("|").append(token);
+        message.append("|").append(ticket);
+        message.append("|").append(extension);
+        message.append("|").append(ocr);
+
+        try {
+            sendQueueMessage(message.toString());
+        } catch (ServiceBusException e) {
+            System.out.println("Error processing messages: "+ e);
+        } catch (InterruptedException e) {
+            System.out.println("Error processing messages: " + e);
+        }
+    }
+
+    private void sendQueueMessage(String ms) throws ServiceBusException, InterruptedException {
+        System.out.println("Sending message: " + ms);
+        final Message message = new Message(
+                ms.getBytes(StandardCharsets.UTF_8));
+        queueClientForSending.send(message);
     }
 
 }

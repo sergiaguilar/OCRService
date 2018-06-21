@@ -2,10 +2,6 @@ package com.everis;
 
 import com.everis.businesslogic.interfaces.IUserControl;
 import com.everis.security.JwtFilter;
-import org.springframework.amqp.core.Binding;
-import org.springframework.amqp.core.BindingBuilder;
-import org.springframework.amqp.core.Queue;
-import org.springframework.amqp.core.TopicExchange;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -21,27 +17,9 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @EntityScan({"com.everis.*"})
 public class RestApp {
 
-    public final  static String TASK_QUEUE_NAME = "OCRQueue";
-
 
     @Autowired
     private IUserControl iUserControl;
-
-    @Bean
-    Queue queue() {
-        return new Queue(TASK_QUEUE_NAME, false);
-    }
-
-    @Bean
-    TopicExchange exchange() {
-        return new TopicExchange("spring-boot-exchange");
-    }
-
-    @Bean
-    Binding binding(Queue queue, TopicExchange exchange) {
-        return BindingBuilder.bind(queue).to(exchange).with(TASK_QUEUE_NAME);
-    }
-
 
     @Bean
     public FilterRegistrationBean jwtFilter() {

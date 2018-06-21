@@ -26,15 +26,15 @@ public class TicketControl implements ITicketControl {
     }
 
     public String getTicketInfo(String id) {
-        if(ticketRepository.exists(id)) {
-            Ticket ticket = ticketRepository.findOne(id);
+        if(ticketRepository.existsById(id)) {
+            Ticket ticket = ticketRepository.findById(id).get();
             return ticket.getState();
         }
         else return "Ticket doesn't exists!";
     }
 
     public String getTicketError(String id) {
-        Ticket ticket = ticketRepository.findOne(id);
+        Ticket ticket = ticketRepository.findById(id).get();
         return ticket.getError();
     }
 }

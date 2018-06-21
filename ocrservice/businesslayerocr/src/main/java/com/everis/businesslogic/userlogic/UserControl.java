@@ -15,16 +15,13 @@ public class UserControl implements IUserControl{
     @Autowired
     private UsersRepository usersRepository;
 
-    @Autowired
-    private ProductsRepository productsRepository;
-
 
     public boolean existsUser(String id) {
-        return usersRepository.exists(id);
+        return usersRepository.existsById(id);
     }
 
     public Users findUserByIdCompany(String id) {
-        return usersRepository.findOne(id);
+        return usersRepository.findById(id).get();
     }
 
 }

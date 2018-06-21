@@ -1,6 +1,6 @@
 com\everis\userservice\UserController.class
 com\everis\ticket\TicketController.class
-com\everis\ocrservice\FineReaderController.class
+com\everis\ocrservice\OCRController.class
 com\everis\userservice\LogInController.class
 com\everis\rabbitmq\Runner.class
 com\everis\RestApp.class
