@@ -5,7 +5,6 @@ import com.everis.billing.model.License;
 import com.everis.businesslogic.interfaces.IProductControl;
 import com.everis.facturationcontrol.interfaces.IFacturationControl;
 import com.everis.finereadercontrol.interfaces.ITicketControl;
-import com.everis.rabbitmq.Runner;
 import com.everis.tokenuser.TokenUser;
 import com.microsoft.azure.servicebus.Message;
 import com.microsoft.azure.servicebus.QueueClient;
@@ -35,7 +34,7 @@ import java.util.Random;
 @RequestMapping("/secure/ocr/")
 public class OCRController {
 
-    private static String UPLOADED_FOLDER = "C:\\Temp\\Entrada\\";
+    private static String UPLOADED_FOLDER = "Z:\\ocr\\entrada\\";
 
     private final Logger logger = LoggerFactory.getLogger(OCRController.class);
 
@@ -53,10 +52,6 @@ public class OCRController {
 
     @Autowired
     private IFacturationControl iFacturationControl;
-
-    public OCRController() {
-
-    }
 
     @PostMapping(value = "/fineReader")
     public ResponseEntity<?> uploadFileAbby(@RequestParam("file")MultipartFile uploadFile, @RequestParam("precision") Integer precision, HttpServletRequest request)  {
@@ -185,7 +180,6 @@ public class OCRController {
     }
 
     private void sendQueueMessage(String ms) throws ServiceBusException, InterruptedException {
-        System.out.println("Sending message: " + ms);
         final Message message = new Message(
                 ms.getBytes(StandardCharsets.UTF_8));
         queueClientForSending.send(message);

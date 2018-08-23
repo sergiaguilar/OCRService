@@ -12,13 +12,13 @@ import java.io.IOException;
 import java.io.InputStream;
 
 @RestController
-//@RequestMapping("/secure/ocr/")
+@RequestMapping("/secure/ocr/")
 public class TicketController {
 
     @Autowired
     private ITicketControl iTicketControl;
 
-    private static String DOWNLOAD_FOLDER = "C:\\Temp\\Salida\\";
+    private static String DOWNLOAD_FOLDER = "Z:\\ocr\\salida\\";
 
     @RequestMapping(value = "/ticketInfo/{ticketId}", method = RequestMethod.GET)
     public String getTicketInfo(@PathVariable("ticketId") String ticket) {
